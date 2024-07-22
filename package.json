@@ -10,6 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@types/react": "^17.0.2",
+    "@types/react-native": "^0.68.7",
+    "babel-plugin-module-resolver": "^5.0.2",
     "react": "17.0.2",
     "react-native": "0.68.7"
   },
