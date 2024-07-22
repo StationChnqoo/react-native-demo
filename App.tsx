@@ -1,13 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from "react";
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -24,6 +17,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from "react-native/Libraries/NewAppScreen";
+import { useStore } from "./useStore";
 
 const Section = ({ children, title }): any => {
   const isDarkMode = useColorScheme() === "dark";
@@ -57,6 +51,7 @@ interface AppProps {}
 
 const App: React.FC<AppProps> = (props) => {
   const isDarkMode = useColorScheme() === "dark";
+  const { bears, increase } = useStore();
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -76,8 +71,14 @@ const App: React.FC<AppProps> = (props) => {
           }}
         >
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
+            Stores: <Text style={styles.highlight}>{bears}</Text> to change this
             screen and then come back to see your edits.
+            <Button
+              onPress={() => {
+                increase(1);
+              }}
+              title="increase"
+            />
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />

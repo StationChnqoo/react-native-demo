@@ -1,9 +1,27 @@
-/**
- * @format
- */
+import React, { createContext, useEffect } from "react";
+import { AppRegistry, StatusBar, View } from "react-native";
+import App from "./App";
+import { name as appName } from "./app.json";
+import { useStore } from "./useStore";
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+const StoreContext = createContext();
 
-AppRegistry.registerComponent(appName, () => App);
+const Demo = () => {
+  useEffect(() => {
+    // console.log('Config.APP_PACKAGE_NAME: ', Config.APP_PACKAGE_NAME);
+    return function () {};
+  }, []);
+
+  return (
+    <StoreContext.Provider value={useStore}>
+      <View style={{ flex: 1 }}>
+        <StatusBar translucent={false} />
+        <View style={{ flex: 1, position: "relative" }}>
+          <App />
+        </View>
+      </View>
+    </StoreContext.Provider>
+  );
+};
+
+AppRegistry.registerComponent(appName, () => Demo);
