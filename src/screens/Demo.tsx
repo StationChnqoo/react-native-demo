@@ -17,8 +17,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from "react-native/Libraries/NewAppScreen";
-import { useStore } from "./useStore";
-import { RootStacksProp } from "./Screens";
+import { useStore } from "@root/useStore";
 
 const Section = ({ children, title }): any => {
   const isDarkMode = useColorScheme() === "dark";
@@ -48,11 +47,9 @@ const Section = ({ children, title }): any => {
   );
 };
 
-interface AppProps {
-  navigation?: RootStacksProp;
-}
+interface AppProps {}
 
-const App: React.FC<AppProps> = (props) => {
+const Demo: React.FC<AppProps> = (props) => {
   const isDarkMode = useColorScheme() === "dark";
   const { bears, increase } = useStore();
 
@@ -79,7 +76,6 @@ const App: React.FC<AppProps> = (props) => {
             <Button
               onPress={() => {
                 increase(1);
-                props.navigation.navigate('Demo', {id: '666666'})
               }}
               title="increase"
             />
@@ -119,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Demo;
