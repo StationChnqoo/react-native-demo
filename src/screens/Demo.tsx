@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Button,
   SafeAreaView,
@@ -18,6 +18,7 @@ import {
   ReloadInstructions,
 } from "react-native/Libraries/NewAppScreen";
 import { useStore } from "@root/useStore";
+import Services from "@src/network/Services";
 
 const Section = ({ children, title }): any => {
   const isDarkMode = useColorScheme() === "dark";
@@ -57,6 +58,11 @@ const Demo: React.FC<AppProps> = (props) => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  useEffect(() => {
+    new Services().testBaidu();
+    return function () {};
+  }, []);
+  
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />

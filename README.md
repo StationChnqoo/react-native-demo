@@ -1,6 +1,6 @@
 ## react-native-demo
 
-主分支基于`react-native@0.68.7`，配置了`ts`和`@ alias`，继承了常用的三方插件：`react-navigation`，`zustand`、`react-native-debugger`。
+主分支基于`react-native@0.68.7`，配置了`ts`和`@alias`，继承了常用的三方插件：`react-navigation`，`zustand`、`react-native-debugger`、`axios`。
 
 为什么选择此分支？
 
