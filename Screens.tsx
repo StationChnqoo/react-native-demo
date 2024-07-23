@@ -11,9 +11,11 @@ import * as React from "react";
 
 import App from "./App";
 import Demo from "@src/screens/Demo";
+import TabScreens from "./TabScreens";
 
 export type RootStacksParams = {
   App: undefined;
+  TabScreens: undefined;
   Demo: { id: String };
 };
 
@@ -29,6 +31,7 @@ export default function Stacks() {
       <RootStack.Navigator
         screenOptions={{ animation: "slide_from_right", headerShown: false }}
       >
+        <RootStack.Screen name="TabScreens" component={TabScreens} />
         <RootStack.Screen name="App" component={App} />
         <RootStack.Screen name="Demo" component={Demo} />
       </RootStack.Navigator>
