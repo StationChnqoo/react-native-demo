@@ -3,6 +3,7 @@ import { AppRegistry, StatusBar, View } from "react-native";
 import App from "./App";
 import { name as appName } from "./app.json";
 import { useStore } from "./useStore";
+import Screens from "./Screens";
 
 const StoreContext = createContext();
 
@@ -17,7 +18,7 @@ const Demo = () => {
       <View style={{ flex: 1 }}>
         <StatusBar translucent={false} />
         <View style={{ flex: 1, position: "relative" }}>
-          <App />
+          <Screens />
         </View>
       </View>
     </StoreContext.Provider>
