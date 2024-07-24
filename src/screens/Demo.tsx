@@ -19,6 +19,7 @@ import {
 } from "react-native/Libraries/NewAppScreen";
 import { useStore } from "@root/useStore";
 import Services from "@src/network/Services";
+import Toast from "react-native-root-toast";
 
 const Section = ({ children, title }): any => {
   const isDarkMode = useColorScheme() === "dark";
@@ -62,7 +63,7 @@ const Demo: React.FC<AppProps> = (props) => {
     new Services().testBaidu();
     return function () {};
   }, []);
-  
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
@@ -82,6 +83,7 @@ const Demo: React.FC<AppProps> = (props) => {
             <Button
               onPress={() => {
                 increase(1);
+                Toast.show("HelloWorld.");
               }}
               title="increase"
             />

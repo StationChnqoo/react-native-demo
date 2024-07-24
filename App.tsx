@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Button,
   SafeAreaView,
@@ -19,6 +19,7 @@ import {
 } from "react-native/Libraries/NewAppScreen";
 import { useStore } from "./useStore";
 import { RootStacksProp } from "./Screens";
+import Toast from "react-native-root-toast";
 
 const Section = ({ children, title }): any => {
   const isDarkMode = useColorScheme() === "dark";
@@ -79,7 +80,8 @@ const App: React.FC<AppProps> = (props) => {
             <Button
               onPress={() => {
                 increase(1);
-                props.navigation.navigate('Demo', {id: '666666'})
+                Toast.show("HelloWorld.", {opacity: 0.9});
+                props.navigation.navigate("Demo", { id: "666666" });
               }}
               title="increase"
             />
